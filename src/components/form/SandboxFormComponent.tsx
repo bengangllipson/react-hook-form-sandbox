@@ -4,7 +4,10 @@ import {defaultValues} from "../../domain/defaultValues.ts";
 import {yupResolver} from '@hookform/resolvers/yup'
 import schema from '../../validationSchema'
 import * as React from "react";
-import {isEmpty} from "lodash";
+import TestField from "./TestField.tsx";
+import AnotherField from "./AnotherField.tsx";
+import ThirdField from "./ThirdField.tsx";
+import Submit from "./Submit.tsx";
 
 interface SandboxFormProps {
     sandboxForm: SandboxForm | null
@@ -26,18 +29,13 @@ const SandboxFormComponent: (props: SandboxFormProps) => React.JSX.Element = (pr
                 void formMethods.handleSubmit(onSubmit)(e)
             }}>
                 <h1>Sandbox</h1>
-                <input {...formMethods.register("testField", {required: true})} />
-                {formMethods.formState.errors.testField?.type === "required" && <p>This field is required</p>}
+                <TestField />
                 <br/>
-                <input {...formMethods.register("anotherField", {required: true})}
-                       onChange={() => {
-                           formMethods.setValue('testField', defaultValues.testField, {
-                               shouldValidate: true,
-                               shouldDirty: true
-                           })
-                       }}/>
+                <AnotherField />
                 <br/>
-                <input type="submit" disabled={!isEmpty(formMethods.formState.errors)}/>
+                <ThirdField />
+                <br/>
+                <Submit />
             </form>
         </FormProvider>
     )
