@@ -57,6 +57,10 @@ include elements that care about the specific changed field in a component.
 </FormProvider>
 ```
 
+
+https://github.com/user-attachments/assets/6fdc0ee6-b3df-48f6-9564-cad179685271
+
+
 #### Optimized, only rerenders what's needed
 
 ```typescript jsx
@@ -142,3 +146,6 @@ const Submit: () => React.JSX.Element = (): React.JSX.Element => {
 
 export default Submit
 ```
+
+https://github.com/user-attachments/assets/9a5f6b7d-629c-4fde-a998-f6694b9a6f47
+
